@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendrier des visites</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="main">
+  <h1>Calendrier des visites</h1>
+  <p class="sub" id="stat"></p>
+  <div class="banner" id="banner" role="status"></div>
+
+  <div class="panel">
+    <h2>Les personnes à visiter</h2>
+    <div class="chips" id="chips"></div>
+    <p class="hint">Touche un jour, puis choisis la personne que tu vas visiter.</p>
+  </div>
+
+  <div class="nav">
+    <button id="prev" aria-label="Mois précédent">←</button>
+    <h2 id="mlabel"></h2>
+    <button id="next" aria-label="Mois suivant">→</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="sheet" id="sheet" hidden><div class="in">
+  <div class="top"><h2 id="sdate"></h2><button id="sclose" aria-label="Fermer">✕</button></div>
+  <p class="sub">Qui vas-tu visiter ce jour-là ?</p>
+  <div class="pbs" id="pbs"></div>
+</div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
