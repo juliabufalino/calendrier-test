@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Calendrier des visites</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Calendrier des visites</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main id="main">
@@ -20,24 +20,35 @@
     <p class="hint">Touche un jour, puis choisis la personne que tu vas visiter.</p>
   </div>
 
-  <section class="summary panel" id="summary">
-    <div class="summary-head">
-      <h2>📊 Bilan du mois précédent</h2>
-      <span class="summary-month" id="summaryMonth"></span>
-    </div>
-    <div id="summaryContent"></div>
-    <button class="history-btn" id="historyToggle" type="button">
-      Voir les bilans précédents
-    </button>
-    <div id="historyContent" hidden></div>
-  </section>
-
   <div class="nav">
     <button id="prev" aria-label="Mois précédent">←</button>
     <h2 id="mlabel"></h2>
     <button id="next" aria-label="Mois suivant">→</button>
   </div>
+
   <div class="grid" id="grid"></div>
+
+  <!-- Bilan mensuel sous le calendrier -->
+  <section class="summary" id="summary" hidden>
+    <h2 id="summaryMonth"></h2>
+
+    <div class="summary-counts">
+      <div class="summary-count">
+        <strong id="visitedCount">0</strong>
+        <span>Personnes visitées</span>
+      </div>
+
+      <div class="summary-count">
+        <strong id="missingCount">0</strong>
+        <span>Personnes non visitées</span>
+      </div>
+    </div>
+
+    <details>
+      <summary>Voir les personnes non visitées</summary>
+      <ul id="missingList"></ul>
+    </details>
+  </section>
 </main>
 
 <div class="sheet" id="sheet" hidden>
