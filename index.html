@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,6 +20,18 @@
     <p class="hint">Touche un jour, puis choisis la personne que tu vas visiter.</p>
   </div>
 
+  <section class="summary panel" id="summary">
+    <div class="summary-head">
+      <h2>📊 Bilan du mois précédent</h2>
+      <span class="summary-month" id="summaryMonth"></span>
+    </div>
+    <div id="summaryContent"></div>
+    <button class="history-btn" id="historyToggle" type="button">
+      Voir les bilans précédents
+    </button>
+    <div id="historyContent" hidden></div>
+  </section>
+
   <div class="nav">
     <button id="prev" aria-label="Mois précédent">←</button>
     <h2 id="mlabel"></h2>
@@ -27,11 +40,16 @@
   <div class="grid" id="grid"></div>
 </main>
 
-<div class="sheet" id="sheet" hidden><div class="in">
-  <div class="top"><h2 id="sdate"></h2><button id="sclose" aria-label="Fermer">✕</button></div>
-  <p class="sub">Qui vas-tu visiter ce jour-là ?</p>
-  <div class="pbs" id="pbs"></div>
-</div></div>
+<div class="sheet" id="sheet" hidden>
+  <div class="in">
+    <div class="top">
+      <h2 id="sdate"></h2>
+      <button id="sclose" aria-label="Fermer">✕</button>
+    </div>
+    <p class="sub">Qui vas-tu visiter ce jour-là ?</p>
+    <div class="pbs" id="pbs"></div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
