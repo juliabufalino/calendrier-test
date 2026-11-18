@@ -1,6 +1,6 @@
 
 const FIREBASE_CONFIG = {
-  apiKey: "TA_CLE_API_FIREBASE_EXISTANTE",
+  apiKey: "AIzaSyDp9uXc6cg87Ybn2cx0top4Vc9POyGr5RE",
   authDomain: "calendrier-af9c4.firebaseapp.com",
   projectId: "calendrier-af9c4",
   storageBucket: "calendrier-af9c4.firebasestorage.app",
