@@ -1,11 +1,11 @@
 
-const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyDp9uXc6cg87Ybn2cx0top4Vc9POyGr5RE",
-  authDomain: "calendrier-af9c4.firebaseapp.com",
-  projectId: "calendrier-af9c4",
-  storageBucket: "calendrier-af9c4.firebasestorage.app",
-  messagingSenderId: "TON_SENDER_ID_EXISTANT",
-  appId: "TON_APP_ID_EXISTANT"
+const FIREBASE_CONFIG={
+  apiKey:"AIzaSyDp9uXc6cg87Ybn2cx0top4Vc9POyGr5RE",
+  authDomain:"calendrier-af9c4.firebaseapp.com",
+  projectId:"calendrier-af9c4",
+  storageBucket:"calendrier-af9c4.firebasestorage.app",
+  messagingSenderId:"1069386067244",
+  appId:"1:1069386067244:web:bce96eab6f759b58d69089"
 };
 
 const START_MONTH = "2026-11";
