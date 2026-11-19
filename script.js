@@ -42,6 +42,28 @@ function el(t,c,txt){const e=document.createElement(t);if(c)e.className=c;if(txt
 function banner(t){$("banner").textContent=t}
 function fail(){banner("Impossible d’enregistrer. Vérifie ta connexion internet et réessaie.")}
 
+function prevInfo(){
+  const pm=new Date(view.getFullYear(),view.getMonth()-1,1);
+  const pre=pm.getFullYear()+"-"+pad(pm.getMonth()+1)+"-";
+  return{pv:visits.filter(v=>v.date&&v.date.startsWith(pre)),name:pm.toLocaleDateString("fr-BE",{month:"long"})};
+}
+const missed=(pi,p)=>pi.pv.length>0&&!pi.pv.some(v=>v.personId===p.id);
+
+function renderRecap(){
+  let box=$("recap");
+  if(!box){box=el("div","panel");box.id="recap";$("grid").after(box)}
+  box.replaceChildren();
+  const pi=prevInfo();
+  box.append(el("h2",null,"Récapitulatif de "+pi.name));
+  if(!pi.pv.length){box.append(el("p","sub","Aucune visite enregistrée en "+pi.name+"."));return}
+  const miss=PEOPLE.filter(p=>missed(pi,p));
+  if(!miss.length){box.append(el("p","sub","Tout le monde a été visité en "+pi.name+". Bravo !"));return}
+  box.append(el("p","sub",miss.length+" personne"+(miss.length>1?"s":"")+" non visitée"+(miss.length>1?"s":"")+" en "+pi.name+" :"));
+  const c=el("div","chips");c.style.marginTop="10px";
+  miss.forEach(p=>{const x=el("div","chip");x.style.background=p.color;x.append(el("span",null,p.name));c.append(x)});
+  box.append(c);
+}
+
 function render(){
   const pre=view.getFullYear()+"-"+pad(view.getMonth()+1)+"-";
   $("mlabel").textContent=view.toLocaleDateString("fr-BE",{month:"long",year:"numeric"});
@@ -66,6 +88,7 @@ function render(){
     b.onclick=()=>{sel=k;render()};
     g.append(b);
   }
+  renderRecap();
   renderSheet();
 }
 
@@ -79,6 +102,7 @@ function renderSheet(){
     const on=has(sel,p.id),other=on&&online&&!visits.some(v=>v.date===sel&&v.personId===p.id&&v.uid===uid);
     const who=visits.filter(v=>v.date===sel&&v.personId===p.id).map(v=>v.by).filter(Boolean).join(", ");
     const b=el("button","pb"+(on?" on":""),(on?"✓ ":"")+p.name+(on&&who?" · "+who:"")+(other&&!who?" (coché par un autre)":""));
+    if(p.hours){const h=el("small",null," 🕒 "+p.hours);h.style.fontWeight="400";b.append(h)}
     b.style.borderColor=p.color;if(on)b.style.background=p.color;
     if(other){b.disabled=true;b.style.opacity=".6"}
     b.setAttribute("aria-pressed",on);
